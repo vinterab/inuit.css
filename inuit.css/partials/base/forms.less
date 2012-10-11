@@ -2,12 +2,12 @@
     $FORMS
 \*------------------------------------*/
 fieldset{
-    padding:$base-spacing-unit +px;
+    padding:@base-spacing-unit + 0px;
 }
 
 /**
  * Text inputs
- * 
+ *
  * Instead of a `[type]` selector for each kind of form input, we just use a
  * class to target any/every one, e.g.:
    <input type=text class=text-input>
@@ -45,7 +45,8 @@ textarea{
     margin:0;
 }
     .form-fields > li{
-        @extend .sass-margin-bottom;
+        margin-bottom:@base-spacing-unit + 0px;
+        margin-bottom:@base-spacing-unit / @base-font-size + 0rem;
     }
     .form-fields > li:last-child{
         margin-bottom:0;

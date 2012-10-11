@@ -13,10 +13,10 @@
 .island,
 .islet{
     display:block;
-    @extend .cf;
+    /* Cant do: @extend .cf; with LESS. This object is added to shared.less instead */
 }
 .island{
-    padding:$base-spacing-unit +px;
+    padding:@base-spacing-unit + 0px;
 }
     .island > :last-child,
     .islet > :last-child{
@@ -27,5 +27,5 @@
  * Just like `.island`, only smaller.
  */
 .islet{
-    padding:$half-spacing-unit +px;
+    padding:@half-spacing-unit + 0px;
 }

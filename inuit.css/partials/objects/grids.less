@@ -5,47 +5,47 @@
  * Fluid and nestable grid system, e.g.:
  *
    <div class=gw>
-       
+
        <div class="g one-third">
            <p>One third grid</p>
        </div>
-       
+
        <div class="g two-thirds">
            <p>Two thirds grid</p>
        </div>
-       
+
        <div class="g one-half">
            <p>One half grid</p>
        </div>
-       
+
        <div class="g one-quarter">
            <p>One quarter grid</p>
        </div>
-       
+
        <div class="g one-quarter">
            <p>One quarter grid</p>
        </div>
-       
+
    </div>
  *
  */
 /**
  * Grid wrapper
- * 
+ *
  * Shorthand and verbose
  */
 .gw,
 .grid-wrapper{
     /**
-     * Negative margin to negate the padding on the first grid child. 
+     * Negative margin to negate the padding on the first grid child.
      */
-    margin-left:-($base-spacing-unit) +px;
+    margin-left:-(@base-spacing-unit) + 0px;
     /**
      * The following declarations allow us to use the `.gw` class on lists.
      */
     list-style:none;
     margin-bottom:0;
-    @extend .cf;
+    /* Cant do: @extend .cf; with LESS. This object is added to shared.less instead */
 }
     /**
      * Very infrequently occuring grid wrappers as children of grid wrappers.
@@ -54,19 +54,22 @@
     .grid-wrapper > .grid-wrapper{
         margin-left:0;
     }
-    
+
     /**
      * Grid
-     * 
+     *
      * Shorthand and verbose
      */
     .g,
     .grid{
         float:left;
-        padding-left:$base-spacing-unit +px;
-        @include vendor(box-sizing, border-box);
+        padding-left:@base-spacing-unit + 0px;
+
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
     }
-    
+
     /**
      * Grid sizes in human readable format.
      */
@@ -91,7 +94,7 @@
      * Quarters
      */
       .one-quarter      { width:25%; }
-      .two-quarters     { @extend .one-half; }
+      .two-quarters     { width:50%; }
     .three-quarters     { width:75%; }
 
     /**
@@ -106,33 +109,33 @@
      * Sixths
      */
       .one-sixth        { width:16.666%; }
-      .two-sixths       { @extend .one-third; }
-    .three-sixths       { @extend .one-half; }
-     .four-sixths       { @extend .two-thirds; }
+      .two-sixths       { width:33.333%; }
+    .three-sixths       { width:50%; }
+     .four-sixths       { width:66.666%; }
      .five-sixths       { width:83.333%; }
 
     /**
      * Eighths
      */
       .one-eighth       { width:12.5%; }
-      .two-eighths      { @extend .one-quarter; }
+      .two-eighths      { width:25%; }
     .three-eighths      { width:37.5%; }
-     .four-eighths      { @extend .one-half; }
+     .four-eighths      { width:50%; }
      .five-eighths      { width:62.5%; }
-      .six-eighths      { @extend .three-quarters; }
+      .six-eighths      { width:75%; }
     .seven-eighths      { width:87.5%; }
 
     /**
      * Tenths
      */
       .one-tenth        { width:10%; }
-      .two-tenths       { @extend .one-fifth; }
+      .two-tenths       { width:20%; }
     .three-tenths       { width:30%; }
-     .four-tenths       { @extend .one-fifth; }
-     .five-tenths       { @extend .one-half; }
-      .six-tenths       { @extend .three-fifths; }
+     .four-tenths       { width:40%; }
+     .five-tenths       { width:50%; }
+      .six-tenths       { width:60%; }
     .seven-tenths       { width:70%; }
-    .eight-tenths       { @extend .four-fifths; }
+    .eight-tenths       { width:80%; }
      .nine-tenths       { width:90%; }
 
 
@@ -140,13 +143,13 @@
      * Twelfths
      */
        .one-twelfth     { width:8.333%; }
-       .two-twelfths    { @extend .one-sixth; }
-     .three-twelfths    { @extend .one-quarter; }
-      .four-twelfths    { @extend .one-third; }
+       .two-twelfths    { width:16.666%; }
+     .three-twelfths    { width:25%; }
+      .four-twelfths    { width:33.333%; }
       .five-twelfths    { width:41.666% }
-       .six-twelfths    { @extend .one-half; }
+       .six-twelfths    { width:50%; }
      .seven-twelfths    { width:58.333%; }
-     .eight-twelfths    { @extend .two-thirds; }
-      .nine-twelfths    { @extend .three-quarters; }
-       .ten-twelfths    { @extend .five-sixths; }
+     .eight-twelfths    { width:66.666%; }
+      .nine-twelfths    { width:75%; }
+       .ten-twelfths    { width:83.333%; }
     .eleven-twelfths    { width:91.666%; }

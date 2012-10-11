@@ -15,25 +15,25 @@
  */
 .media{
     display:block;
-    @extend .cf;
+    /* Cant do: @extend .cf; with LESS. This object is added to shared.less instead */
 }
     .img{
         float:left;
-        margin-right:$base-spacing-unit +px;
+        margin-right:@base-spacing-unit + 0px;
     }
     /**
      * Reversed image location (right instead of left).
      */
     .img-rev{
         float:right;
-        margin-left:$base-spacing-unit +px;
+        margin-left:@base-spacing-unit + 0px;
     }
-    
+
         .img img,
         .img-rev img{
             display:block;
         }
-    
+
     .body{
         overflow:hidden;
     }
@@ -41,13 +41,13 @@
         .body > :last-child{
             margin-bottom:0;
         }
-    
+
     /**
      * `.img`s in `.islet`s need an appropriately sized margin.
      */
     .islet .img{
-        margin-right:$half-spacing-unit +px;
+        margin-right:@half-spacing-unit + 0px;
     }
     .islet .img-rev{
-        margin-left:$half-spacing-unit +px;
+        margin-left:@half-spacing-unit + 0px;
     }

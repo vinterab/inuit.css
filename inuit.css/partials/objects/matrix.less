@@ -24,14 +24,17 @@
     margin-left:0;
     border-top-width: 1px;
     border-left-width:1px;
-    @extend .cf;
+    /* Cant do: @extend .cf; with LESS. This object is added to shared.less instead */
 }
     .matrix > li{
-        padding:$half-spacing-unit +px;
+        padding:@half-spacing-unit + 0px;
         float:left;
         border-right-width: 1px;
         border-bottom-width:1px;
-        @include vendor(box-sizing, border-box);
+
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
     }
 
 /**
@@ -49,12 +52,12 @@
 .multi-list{
     list-style:none;
     margin-left:0;
-    @extend .cf;
+    /* Cant do: @extend .cf; with LESS. This object is added to shared.less instead */
 }
     .multi-list > li{
         float:left;
     }
-    
+
     /**
      * Apply these classes alongside the `.matrix` or `.multi-list` classes on
      * lists to determine how wide their columns are.
